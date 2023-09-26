@@ -20,8 +20,8 @@ labels = [label for _, _, label in data]
 
 # Step 2: Encode words and POS tags
 # You can use one-hot encoding for both words and POS tags
-word_encoder = OneHotEncoder(sparse_output=True, sparse=False)
-pos_tag_encoder = OneHotEncoder(sparse_output=True, sparse=False)
+word_encoder = OneHotEncoder(sparse_output=True)
+pos_tag_encoder = OneHotEncoder(sparse_output=True)
 
 word_encoded = word_encoder.fit_transform(np.array(words).reshape(-1, 1))
 pos_tag_encoded = pos_tag_encoder.fit_transform(np.array(pos_tags).reshape(-1, 1))
