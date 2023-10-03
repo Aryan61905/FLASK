@@ -78,26 +78,25 @@ for i in range(len(words)):
 X_train, X_test, y_train, y_test = train_test_split(features, pos_tags, test_size=0.2, random_state=42)
 
 # Step 5: Define NLTK classifiers and train them
-from nltk.classify import NaiveBayesClassifier
+from nltk.classify.scikitlearn import SklearnClassifier
+from sklearn.linear_model import LogisticRegression
 
-# Naive Bayes Classifier
-nb_classifier = NaiveBayesClassifier.train(X_train)
-print("Naive Bayes Classifier Accuracy:", nltk.classify.accuracy(nb_classifier, X_test))
+# Logistic Regression Classifier
+print("-1")
+logistic_classifier = SklearnClassifier(LogisticRegression(solver="liblinear"))
+logistic_classifier.train(X_train)
+print("Logistic Regression Classifier Accuracy:", nltk.classify.accuracy(logistic_classifier, X_test))
 
-print("here")
-# Step 1: Read and tokenize the test data
+
+# Read words from the unlabeled test data
 test_data = []
-test_pos_tags = []  # List to store the actual POS tags
-with open('test.txt', 'r') as file:
+with open('unlabeled_test_test.txt', 'r') as file:
     for line in file:
-        line = line.strip()  # Remove leading/trailing whitespace
-        if line:
-            token, pos_tag, _ = line.split()  # Extract POS tag from test data
-            test_data.append(token)
-            test_pos_tags.append(pos_tag)
+        word = line.strip()  # Remove leading/trailing whitespace
+        if word:
+            test_data.append(word)
 
-# Step 2: Extract features from the test data
-print("1")
+# Extract features from the test data
 test_features = []
 for i in range(len(test_data)):
     current_word = test_data[i]
@@ -145,15 +144,10 @@ for i in range(len(test_data)):
     }
     test_features.append(feature)
 
-# Step 3: Use NLTK classifiers to make predictions on the test data
-print("3")
-y_pred_nb = [nb_classifier.classify(feature) for feature in test_features]
+# Use the trained logistic regression classifier to make predictions on the test data
+y_pred_logistic = [logistic_classifier.classify(feature) for feature in test_features]
 
-# Step 4: Evaluate the performance of your models
-# You can calculate accuracy by comparing the predicted POS tags with the actual POS tags in test_pos_tags.
-with open('output.txt', 'w') as file:
-    for word, tag in zip(test_data, y_pred_nb):
+# Write predictions to logFLASK.txt
+with open('logFLASK.txt', 'w') as file:
+    for word, tag in zip(test_data, y_pred_logistic):
         file.write(f"{word} {tag}\n")
-
-accuracy_nb = accuracy_score(test_pos_tags, y_pred_nb)
-print("Naive Bayes Classifier Accuracy:", accuracy_nb)
