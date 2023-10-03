@@ -11,6 +11,8 @@ with open('unlabeled_test_test.txt', 'r') as file:
 # Use NLTK's pre-trained POS tagger
 pos_tags = nltk.pos_tag(test_data)
 
+
+
 # Write predictions to FLASK.txt
 with open('newFLASK.txt', 'w') as file:
     for word, tag in pos_tags:
