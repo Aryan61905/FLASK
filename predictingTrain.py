@@ -1,5 +1,6 @@
 import nltk
-import spacy
+import os
+os.system('pip3 install spacy')
 spacy.load('en_core_web_sm')
 from sklearn.metrics import confusion_matrix, accuracy_score
 
