@@ -2,7 +2,7 @@ import nltk
 from sklearn.metrics import  accuracy_score
 
 our_tags = []
-with open('logFlask.txt', 'r') as file:
+with open('final_tags.txt', 'r') as file:
     for line in file:
         line = line.strip()  # Remove leading/trailing whitespace
         if line:

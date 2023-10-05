@@ -147,7 +147,17 @@ for i in range(len(test_data)):
 # Use the trained logistic regression classifier to make predictions on the test data
 y_pred_logistic = [logistic_classifier.classify(feature) for feature in test_features]
 
-# Write predictions to logFLASK.txt
+with open('unlabeled_test_test.txt', 'r') as file:
+    lines = file.readlines()
+
+# Write predictions to logFLASK.txt with tags added to each line
 with open('logFLASK.txt', 'w') as file:
+    line_index = 0
     for word, tag in zip(test_data, y_pred_logistic):
-        file.write(f"{word} {tag}\n")
+        # Skip empty lines in the original dataset
+        while line_index < len(lines) and lines[line_index].strip() == '':
+            file.write('\n')
+            line_index += 1
+        # Add the predicted tag to the current line
+        file.write(f"{lines[line_index].strip()} {tag}\n")
+        line_index += 1
