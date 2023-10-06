@@ -47,12 +47,12 @@ for log_tag, bayes_tag, svm_tag in zip(log_tags, bayes_tags, svm_tags):
     final_tags.append(most_common_tag)
 
 # Write the output to a new file
-with open('final_tags.txt', 'w') as file:
+with open('FLASK.test.txt', 'w') as file:
     for word, tag in zip(words, final_tags):
         if(word == ''):
             file.write('\n')
         elif(check_word(word)):
-            file.write(f"{word} NN\n")
+            file.write(f"{word} NNP\n")
         else:
             file.write(f"{word} {tag}\n")
 
