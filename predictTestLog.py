@@ -54,7 +54,7 @@ for i in range(len(words)):
     has_digits = int(any(char.isdigit() for char in current_word))
 
     # Presence of punctuation
-    has_punctuation = int(any(char in "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~" for char in current_word))
+    has_punctuation = int(any(char in "!\"#@$%&'()*+,-./:;<=>?[\\]^_`{|}~" for char in current_word))
 
     # Combine features as a dictionary
     feature = {

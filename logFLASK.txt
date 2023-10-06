@@ -929,7 +929,7 @@ Not RB
 only RB
 is VBZ
 it PRP
-#BattlestarGalactica NNP
+#BattlestarGalactica JJ
 's POS
 32nd CD
 Anniversary NNP
@@ -3151,7 +3151,7 @@ September NNP
 ... :
 http://bit.ly/96Zavf JJ
 #realestate JJ
-#invest JJS
+#invest JJ
 
 Good NNP
 golly RB
@@ -4048,7 +4048,7 @@ Face NNP
 ... :
 http://bit.ly/bYWzrq JJ
 
-@jackjohnson NN
+@jackjohnson JJ
 where WRB
 can MD
 I PRP
@@ -7042,7 +7042,7 @@ n't RB
 ring VBG
 the DT
 bell NN
-tweet JJ
+tweet NN
 me PRP
 when WRB
 ur NN
@@ -11155,7 +11155,7 @@ blessed VBD
 that IN
 shit NN
 . .
-#realchop NN
+#realchop JJ
 
 I PRP
 kept VBD
@@ -11486,7 +11486,7 @@ Sunday NNP
 : :
 http://tinyurl.com/47vbdy5 JJ
 #Books NNS
-#Poetry NN
+#Poetry JJ
 
 I PRP
 hate VBP
@@ -14512,7 +14512,7 @@ until IN
 after IN
 election NN
 http://bit.ly/aEi59e JJ
-#oreillyfactor NN
+#oreillyfactor JJ
 
 Shower NNP
 time NN

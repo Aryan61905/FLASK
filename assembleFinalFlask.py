@@ -1,10 +1,21 @@
 from collections import Counter
+import re
 
 
 log_tags = []
 bayes_tags = [] 
 svm_tags = []
 words = []
+
+def check_word(word):
+    # Regular expression pattern to match words starting with '#', '@', or 'http'
+    pattern = r'^(#|@|http)'
+    
+    # Using re.match() to check if the word matches the pattern at the beginning
+    if re.match(pattern, word):
+        return True
+    else:
+        return False
 
 with open('logFLASK.txt', 'r') as file:
     words = [line.strip().split()[0] if len(line.strip().split()) >= 2 else '' for line in file]
@@ -40,6 +51,8 @@ with open('final_tags.txt', 'w') as file:
     for word, tag in zip(words, final_tags):
         if(word == ''):
             file.write('\n')
+        elif(check_word(word)):
+            file.write(f"{word} NN\n")
         else:
             file.write(f"{word} {tag}\n")
 
