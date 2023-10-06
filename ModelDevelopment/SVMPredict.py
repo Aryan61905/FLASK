@@ -8,7 +8,10 @@ from sklearn.preprocessing import StandardScaler
 from collections import Counter
 import numpy as np
 from nltk.classify.scikitlearn import SklearnClassifier
-from sklearn.svm import SVC  # Import the SVM classifier
+from sklearn.svm import SVC
+
+### This is the code that we used to train and develop our models 
+### to find the best features to extract from the data for our Logistic Model
 
 # Step 1: Read and tokenize the data
 data = []
@@ -78,77 +81,13 @@ for i in range(len(words)):
 
 # Step 4: Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(features, pos_tags, test_size=0.2, random_state=42)
-print("-1")
+
+
 # Step 5: Define NLTK classifiers and train them
-print("0")
 # Support Vector Machine Classifier
 svm_classifier = SklearnClassifier(SVC(kernel='linear')) 
 svm_classifier.train(X_train)
 print("SVM Classifier Accuracy:", nltk.classify.accuracy(svm_classifier, X_test))
+### Output is SVM Classifier Accuracy: 0.9772351579842252
 
-# Step 1: Read and tokenize the test data
-test_data = []
-test_pos_tags = []  # List to store the actual POS tags
-with open('test.txt', 'r') as file:
-    for line in file:
-        line = line.strip()  # Remove leading/trailing whitespace
-        if line:
-            token, pos_tag, _ = line.split()  # Extract POS tag from test data
-            test_data.append(token)
-            test_pos_tags.append(pos_tag)
 
-# Step 2: Extract features from the test data
-test_features = []
-for i in range(len(test_data)):
-    current_word = test_data[i]
-    previous_word = test_data[i - 1] if i > 0 else "<START_WORD>"  # Include "<START_WORD>" for the first word
-    prev_prev_word = test_data[i - 2] if i >= 2 else "<START_WORD>"  # Include "<START_WORD>" for the first two words
-    next_word = test_data[i + 1] if i < len(test_data) - 1 else "<END_WORD>"  # Include "<END_WORD>" for the last word
-
-    # Capitalization feature
-    is_capitalized = int(current_word[0].isupper())
-
-    # Prefixes (e.g., first 3 characters)
-    prefix1 = current_word[:1]
-    prefix2 = current_word[:2]
-    prefix3 = current_word[:3]
-
-    # Suffixes (e.g., last 3 characters)
-    suffix1 = current_word[-1:]
-    suffix2 = current_word[-2:]
-    suffix3 = current_word[-3:]
-
-    # Word length
-    word_length = len(current_word)
-
-    # Presence of digits
-    has_digits = int(any(char.isdigit() for char in current_word))
-
-    # Presence of punctuation
-    has_punctuation = int(any(char in "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~" for char in current_word))
-
-    # Combine features as a dictionary
-    feature = {
-        'word': current_word,
-        'prev_word': previous_word,
-        'next_word': next_word,
-        'is_capitalized': is_capitalized,
-        'prefix1': prefix1,
-        'prefix2': prefix2,
-        'prefix3': prefix3,
-        'suffix1': suffix1,
-        'suffix2': suffix2,
-        'suffix3': suffix3,
-        'word_length': word_length,
-        'has_digits': has_digits,
-        'has_punctuation': has_punctuation,
-    }
-    test_features.append(feature)
-print("1")
-# Step 3: Use NLTK classifiers to make predictions on the test data
-y_pred_svm = [svm_classifier.classify(feature) for feature in test_features]
-print("2")
-# Step 4: Evaluate the performance of your models
-# You can calculate accuracy by comparing the predicted POS tags with the actual POS tags in test_pos_tags.
-accuracy_svm = accuracy_score(test_pos_tags, y_pred_svm)
-print("SVM Classifier Accuracy:", accuracy_svm)

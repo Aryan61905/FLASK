@@ -8,6 +8,10 @@ from sklearn.preprocessing import StandardScaler
 from collections import Counter
 import numpy as np
 
+### This is the file where we train our model with the correct features
+### which we determined from our Model Development files on a Logistic Classifier
+### and then use that model to predict the POS tags of the unlabeled test data
+
 # Step 1: Read and tokenize the data
 data = []
 with open('train.txt', 'r') as file:
@@ -75,14 +79,14 @@ for i in range(len(words)):
     features.append((feature, current_pos))
 
 # Step 4: Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(features, pos_tags, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(features, pos_tags, test_size=0.001, random_state=42)
 
 # Step 5: Define NLTK classifiers and train them
 from nltk.classify.scikitlearn import SklearnClassifier
 from sklearn.linear_model import LogisticRegression
 
 # Logistic Regression Classifier
-print("-1")
+
 logistic_classifier = SklearnClassifier(LogisticRegression(solver="liblinear"))
 logistic_classifier.train(X_train)
 print("Logistic Regression Classifier Accuracy:", nltk.classify.accuracy(logistic_classifier, X_test))
@@ -150,8 +154,8 @@ y_pred_logistic = [logistic_classifier.classify(feature) for feature in test_fea
 with open('unlabeled_test_test.txt', 'r') as file:
     lines = file.readlines()
 
-# Write predictions to logFLASK.txt with tags added to each line
-with open('logFLASK.txt', 'w') as file:
+# Write predictions to Prediction_Logistic.txt with tags added to each line
+with open('Prediction_Logistic.txt', 'w') as file:
     line_index = 0
     for word, tag in zip(test_data, y_pred_logistic):
         # Skip empty lines in the original dataset

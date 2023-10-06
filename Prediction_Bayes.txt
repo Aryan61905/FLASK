@@ -520,7 +520,7 @@ get VB
 it PRP
 ! .
 
-@BieberEgypt JJS
+@BieberEgypt SYM
 I PRP
 've VBP
 got VBD
@@ -1069,7 +1069,7 @@ regret VB
 Sometimes NNP
 somethings NNS
 turn VB
-in-to IN
+in-to VBP
 dumb RP
 things NNS
 . .
@@ -1303,7 +1303,7 @@ store NN
 V UH
 impressed VBN
 . .
-Did NNP
+Did VBD
 you PRP
 get VB
 analogue NN
@@ -2056,7 +2056,7 @@ I PRP
 15 CD
 .. :
 old JJ
-enough RB
+enough JJ
 !........ :
 #FindTheNearestExit #
 
@@ -2872,7 +2872,7 @@ RT UH
 RT UH
 @FakeDarcy SYM
 : :
-No DT
+No RB
 Derek NNP
 , ,
 when WRB
@@ -3429,7 +3429,7 @@ that WDT
 is VBZ
 . .
 
-@ashhleybrookee JJ
+@ashhleybrookee )
 it PRP
 may MD
 be VB
@@ -3753,7 +3753,7 @@ Surita NNP
 : :
 your PRP$
 a DT
-freaking VBG
+freaking NN
 ... :
 http://tumblr.com/xmciuda0t SYM
 
@@ -4410,7 +4410,7 @@ and CC
 Fabi NNP
 . .
 'll MD
-have VBP
+have VB
 a DT
 great JJ
 daaaaay NN
@@ -5654,7 +5654,7 @@ them PRP
 after IN
 explosion NN
 in IN
-#sanBrunofire JJ
+#sanBrunofire FW
 -Who WP
 is VBZ
 still RB
@@ -5957,7 +5957,7 @@ a DT
 follow VB
 friday NN
 ? .
-lol VBP
+lol JJ
 &lt; SYM
 &lt; SYM
 @Ms_GudBitch SYM
@@ -6843,7 +6843,7 @@ Metal NNP
 Container NNP
 ) #
 
-MetroPCS NNP
+MetroPCS NNPS
 has VBZ
 the DT
 worst JJS
@@ -7461,7 +7461,7 @@ day NN
 but CC
 it PRP
 was VBD
-no DT
+no RB
 rain NN
 , ,
 NO UH
@@ -8403,7 +8403,7 @@ http://bit.ly/hB3WWp SYM
 'll MD
 do VBP
 it PRP
-tomorrow RB
+tomorrow NN
 . .
 Possibly NNP
 . .
@@ -8777,7 +8777,7 @@ NHL UH
 Betting VBG
 Picks NNPS
 - :
-Bruins NNP
+Bruins NNPS
 vs FW
 Wild NNP
 : :
@@ -8918,7 +8918,7 @@ bucks NNS
 ! .
 I PRP
 feel VBP
-like VB
+like IN
 breaking VBG
 a DT
 record NN
@@ -9989,7 +9989,7 @@ that WDT
 's POS
 no RB
 good JJ
-maybe VB
+maybe RB
 you PRP
 got VBD
 a DT
@@ -10021,7 +10021,7 @@ exam NN
 3:30 CD
 .... :
 
-No DT
+No RB
 work NN
 today NN
 
@@ -10041,7 +10041,7 @@ spring VBG
 RT UH
 @monsterrkev SYM
 : :
-No DT
+No RB
 more JJR
 Pink NNP
 Friday NNP
@@ -10728,7 +10728,7 @@ month NN
 for IN
 shows NNS
 . .
-Spring VBG
+Spring NNP
 Break NNP
 Your PRP$
 Heart NNP
@@ -11263,7 +11263,7 @@ one CD
 hand NN
 . .
 
-No DT
+No RB
 School NNP
 today NN
 . .
@@ -11635,7 +11635,7 @@ Is VBZ
 thinking VBG
 about IN
 doing VBG
-maybe VB
+maybe RB
 an DT
 open JJ
 mic JJ
@@ -11706,7 +11706,7 @@ for IN
 rings NNS
 Saturday NNP
 - :
-Benefits NNS
+Benefits NNP
 of IN
 a DT
 Great NNP
@@ -12201,7 +12201,7 @@ Snipes NNPS
 is VBZ
 going VBG
 to TO
-jail NN
+jail VB
 . .
 For IN
 3 CD
@@ -12920,7 +12920,7 @@ http://goo.gl/fb/X7T4s SYM
 ) #
 
 @msloaf SYM
-Though NNP
+Though IN
 I PRP
 do VBP
 agree VBP
@@ -13344,7 +13344,7 @@ herold VBN
 square VBP
 ! .
 
-Got VB
+Got NNP
 the DT
 stuff NN
 to TO
@@ -13369,7 +13369,7 @@ the DT
 gals NNS
 are VBP
 here RB
-tonight RB
+tonight VBD
 
 #eritrea #
 Top NNP
@@ -15845,7 +15845,7 @@ i PRP
 thought VBD
 u PRP
 was VBD
-talkin NN
+talkin VB
 bout RP
 another DT
 time NN

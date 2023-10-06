@@ -4,11 +4,14 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import StandardScaler
-
 from collections import Counter
 import numpy as np
 from nltk.classify.scikitlearn import SklearnClassifier
 from sklearn.svm import SVC  # Import the SVM classifier
+
+### This is the file where we train our model with the correct features
+### which we determined from our Model Development files on a SVM Classifier
+### and then use that model to predict the POS tags of the unlabeled test data
 
 # Step 1: Read and tokenize the data
 data = []
@@ -77,10 +80,9 @@ for i in range(len(words)):
     features.append((feature, current_pos))
 
 # Step 4: Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(features, pos_tags, test_size=0.2, random_state=42)
-print("-1")
+X_train, X_test, y_train, y_test = train_test_split(features, pos_tags, test_size=0.001, random_state=42)
+
 # Step 5: Define NLTK classifiers and train them
-print("0")
 # Support Vector Machine Classifier
 svm_classifier = SklearnClassifier(SVC(kernel='linear')) 
 svm_classifier.train(X_train)
@@ -141,14 +143,14 @@ for i in range(len(test_data)):
         'has_punctuation': has_punctuation,
     }
     test_features.append(feature)
-print("1")
+
 # Step 3: Use NLTK classifiers to make predictions on the test data
 y_pred_svm = [svm_classifier.classify(feature) for feature in test_features]
 with open('unlabeled_test_test.txt', 'r') as file:
     lines = file.readlines()
 
-# Write predictions to logFLASK.txt with tags added to each line
-with open('SVMFLASK.txt', 'w') as file:
+# Write predictions to Prediction_SVM.txt with tags added to each line
+with open('Prediction_SVM.txt', 'w') as file:
     line_index = 0
     for word, tag in zip(test_data, y_pred_svm):
         # Skip empty lines in the original dataset

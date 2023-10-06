@@ -75,7 +75,7 @@ for i in range(len(words)):
     features.append((feature, current_pos))
 
 # Step 4: Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(features, pos_tags, test_size=0.01, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(features, pos_tags, test_size=0.001, random_state=42)
 
 # Step 5: Define NLTK classifiers and train them
 from nltk.classify import NaiveBayesClassifier
@@ -85,7 +85,6 @@ nb_classifier = NaiveBayesClassifier.train(X_train)
 print("Naive Bayes Classifier Accuracy:", nltk.classify.accuracy(nb_classifier, X_test))
 
 
-print("here")
 # Read words from the unlabeled test data
 test_data = []
 with open('unlabeled_test_test.txt', 'r') as file:
@@ -95,7 +94,6 @@ with open('unlabeled_test_test.txt', 'r') as file:
             test_data.append(word)
 
 # Step 2: Extract features from the test data
-print("1")
 test_features = []
 for i in range(len(test_data)):
     current_word = test_data[i]
@@ -148,8 +146,8 @@ y_pred_bayes = [nb_classifier.classify(feature) for feature in test_features]
 with open('unlabeled_test_test.txt', 'r') as file:
     lines = file.readlines()
 
-# Write predictions to logFLASK.txt with tags added to each line
-with open('bayesFLASK.txt', 'w') as file:
+# Write predictions to Prediction_Bayes.txt with tags added to each line
+with open('Prediction_Bayes.txt', 'w') as file:
     line_index = 0
     for word, tag in zip(test_data, y_pred_bayes):
         # Skip empty lines in the original dataset
