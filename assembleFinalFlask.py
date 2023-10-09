@@ -62,5 +62,6 @@ with open('FLASK.test.txt', 'w') as file:
             file.write(f"{word} NNP\n")
         else:
             file.write(f"{word} {tag}\n")
+    file.write('\n')
 
 print("Final tags written to FLASK.test.txt.")
